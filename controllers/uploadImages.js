@@ -18,7 +18,7 @@ const uploadResumeImages = async (req, res) => {
       }
 
       const uploadsFolder = path.join(__dirname, '..', 'uploads')
-      const baseUrl = process.env.BASE_URL || 'http://localhost:8000'
+      const baseUrl = process.env.BASE_URL || 'https://resume-builder-hfxc.onrender.com'
 
       const newThumbnail = req.files.thumbnail?.[0]
       const newProfileImage = req.files.profileImage?.[0]

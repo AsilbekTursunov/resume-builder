@@ -2,7 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
-const connectDatabase = require('./config/db'); 
+const connectDatabase = require('./config/db');
 const path = require('path')
 const app = express();
 dotenv.config();
@@ -11,13 +11,13 @@ dotenv.config();
 const userRoutes = require('./routes/userRoute')
 const resumeRoutes = require('./routes/resumeRoute')
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*',
+  origin: process.env.CLIENT_URL || 'http://localhost:5174',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // allow cookies
 }))
 app.use(express.json())
-app.use(cookieParser()) 
+app.use(cookieParser())
 
 // connect database
 connectDatabase()

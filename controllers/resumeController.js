@@ -171,7 +171,7 @@ const deleteResume = async (req, res) => {
 
     // Delete thumbnailLink and profilePreviewUrl images from uploads folder
     const uploadsFolder = path.join(__dirname, '..', 'uploads');
-    const baseUrl = process.env.BASE_URL || 'http://localhost:8000'
+    const baseUrl = process.env.BASE_URL || 'https://resume-builder-hfxc.onrender.com'
 
     if (resume.thumbnailLink) {
       const oldThumbnail = path.join(uploadsFolder, path.basename(resume.thumbnailLink));
