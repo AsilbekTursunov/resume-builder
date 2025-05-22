@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');;
 const connectDatabase = require('./config/db');
 const path = require('path')
 const app = express();
@@ -18,7 +19,9 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(cookieParser())
-
+app.use(cookieParser());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(fileUpload({ createParentPath: true })); 
 // connect database
 connectDatabase()
 
@@ -26,7 +29,7 @@ connectDatabase()
 app.use('/api/auth', userRoutes)
 app.use('/api/resume', resumeRoutes)
 
-// Serve uploads folder
+// // Serve uploads folder
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"), {
