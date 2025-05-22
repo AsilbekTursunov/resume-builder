@@ -11,7 +11,7 @@ dotenv.config();
 const userRoutes = require('./routes/userRoute')
 const resumeRoutes = require('./routes/resumeRoute')
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: process.env.CLIENT_URL || 'https://resume-frontend-mu.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // allow cookies
@@ -31,7 +31,7 @@ app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"), {
     setHeaders: (res, path) => {
-      res.set("Access-Control-Allow-Origin", "http://localhost:5173");
+      res.set("Access-Control-Allow-Origin", "https://resume-frontend-mu.vercel.app");
     },
   })
 );
