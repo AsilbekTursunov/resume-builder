@@ -12,7 +12,7 @@ const connectDatabase = async () => {
     console.log('Successfully connected');
     isConnedted = true
   } catch (error) {
-    console.log('Error while connecting to databse');
+    console.log('Error while connecting to databse', error);
   }
 }
 

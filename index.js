@@ -31,7 +31,7 @@ app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"), {
     setHeaders: (res, path) => {
-      res.set("Access-Control-Allow-Origin", "https://resume-frontend-mu.vercel.app");
+      res.set("Access-Control-Allow-Origin", process.env.CLIENT_URL);
     },
   })
 );
